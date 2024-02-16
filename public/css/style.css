@@ -1,0 +1,118 @@
+body{
+    margin: 0 auto;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: x-large;
+}
+
+h1{
+    margin: 0 auto;
+    padding: 30px;
+    background-color: rgb(20, 144, 153);
+    color: white;
+}
+
+nav{
+    background-color: rgb(211, 216, 219);
+    margin-top: 50px;
+    height: 240px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 10px;
+}
+
+nav hr{
+    border: 1px solid rgb(107, 107, 107);
+    width: 180px;
+}
+
+a{
+    margin: 2px;
+    margin-left: 40px;
+    color: #058eb1;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    width: 70%;
+}
+
+a:hover{
+    background-color: #058eb1;
+    color:white;
+    text-decoration: none;
+}
+
+.destaque{
+    background-color: #058eb1;
+    color:white;
+    text-decoration: none;
+    font-size: 25px;
+}
+
+nav p{
+    text-align: center;
+    font-size: large;
+}
+
+.caixa{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.fieldsetGet{
+    width: 800px;
+}
+
+fieldset{
+    width: 500px;
+    text-align: center;
+    border-radius: 20px;
+    margin-top: 50px;
+}
+
+input{
+    width: 250px;
+    height: 35px;
+    border-radius: 10px;
+    border: white;
+    background-color: rgb(214, 214, 214);
+    color: black;
+    font-size: large;
+    margin-bottom: 40px;
+}
+
+.botaoBuscar{
+    width: 30%;
+    height: 40px;
+}
+
+button{
+    width: 70%;
+    height: 50px;
+    border-radius: 15px;
+    margin-top: 10px;
+    border: white;
+    background-color: rgb(20, 126, 145);
+    color: white;
+    font-size: x-large;
+}
+
+button:hover{
+    background-color:rgb(32, 32, 32);
+    border: rgb(32, 32, 32);
+    transition: 0,5s;
+}
+
+table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+
+td, th {
+    border: 1px solid #1b8ca8;
+    text-align: left;
+    padding: 8px;
+}

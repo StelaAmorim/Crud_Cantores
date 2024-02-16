@@ -1,0 +1,36 @@
+{
+  "pessoas": [
+    {
+      "id": 1,
+      "nome": "Chris Martin",
+      "idade": 46,
+      "nacionalidade": "Britânico",
+      "genero": "Pop rock",
+      "musica": "Viva La Vida"
+    },
+    {
+      "id": 2,
+      "nome": "Billie Eilish",
+      "idade": 22,
+      "nacionalidade": "Americana",
+      "genero": "Pop",
+      "musica": "Happier Than Ever"
+    },
+    {
+      "id": 3,
+      "nome": "Drake",
+      "idade": 37,
+      "nacionalidade": "Canadense",
+      "genero": "Rap",
+      "musica": "God's plan"
+    },
+    {
+      "nome": "Thiago Veigh",
+      "idade": "23",
+      "nacionalidade": "Brasileiro",
+      "genero": "Trap",
+      "musica": "Novo Balanço",
+      "id": 4
+    }
+  ]
+}

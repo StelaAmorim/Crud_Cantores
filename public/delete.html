@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PUT - Método CRUD</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <center>
+            <h1>Cantores - DELETE</h1>
+        </center>
+    </header>
+
+    <div class="caixa">
+        <nav class="container">
+            <p>Menu</p>
+            <hr>
+            <a href="index.html">Get</a>
+            <a href="post.html">Post</a>
+            <a href="put.html">Put</a>
+            <a href="delete.html" class="destaque">Delete</a>
+        </nav>
+
+        <fieldset>
+            <form>
+                <h3>DELETE</h3>
+                <label>Nome:</label>
+                <input type="text" id="nome">
+                <br>
+                <button onclick="deletarDados()">Deletar</button>
+            </form>
+        </fieldset>
+    </div>
+
+    <script>
+        //DELETE
+        function deletarDados() {
+            const nome = document.getElementById("nome").value;
+          
+            fetch(`pessoas`)
+              .then(response => response.json())
+              .then(data => {
+                document.getElementById('nome').value = '';
+                data.forEach(obj => {
+                  if (obj.nome === nome) {
+                    fetch(`pessoas/${obj.id}`, {
+                      method: 'DELETE'
+                    });
+                  }
+                });
+              });
+          }
+    </script>
+</body>
+</html>

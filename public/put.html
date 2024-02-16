@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PUT - Método CRUD</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <center>
+            <h1>Cantores - PUT</h1>
+        </center>
+    </header>
+
+    <div class="caixa">
+        <nav class="container">
+            <p>Menu</p>
+            <hr>
+            <a href="index.html">Get</a>
+            <a href="post.html">Post</a>
+            <a href="put.html" class="destaque">Put</a>
+            <a href="delete.html">Delete</a>
+        </nav>
+
+        <fieldset>
+            <form>
+                <h2>PUT</h2>
+                <label>Nome:</label>
+                <input type="text" id="nomeAtualizar" placeholder="Digite o nome para busca">
+                <button onclick="buscarDados()" class="botaoBuscar">Buscar</button>
+                <hr>
+                <label>ID:</label>
+                <input type="text" id="id" readonly><br>
+                <label>Nome:</label>
+                <input type="text" id="nomeAtualizar">
+                <br>
+                <label>Idade:</label>
+                <input type="text" id="idadeAtualizar">
+                <br>
+                <label>Nacionalidade:</label>
+                <input type="text" id="nacionalidadeAtualizar">
+                <br>
+                <label>Gênero:</label>
+                <input type="text" id="generoAtualizar">
+                <br>
+                <label>Música:</label>
+                <input type="text" id="musicaAtualizar">
+                <br>
+                <button onclick="atualizarDados()">Atualizar</button>
+            </form>
+        </fieldset>
+    </div>
+
+    <script>
+        //GET-PUT   
+        function buscarDados() {
+            const nome = document.getElementById('nomeAtualizar').value;
+            fetch(`pessoas`, {
+                method: 'GET'
+            })
+            .then(response => response.json())
+            .then(data => {
+                const pessoaEncontrada = data.find(pessoa => pessoa.nome === nome);
+                
+                console.log(data)
+                if (pessoaEncontrada) {
+                    document.getElementById('nomeAtualizar').value = pessoaEncontrada.nome;
+                    document.getElementById('idadeAtualizar').value = pessoaEncontrada.idade;
+                    document.getElementById('nacionalidadeAtualizar').value = pessoaEncontrada.nacionalidade;
+                    document.getElementById('generoAtualizar').value = pessoaEncontrada.genero;
+                    document.getElementById('musicaAtualizar').value = pessoaEncontrada.musica;
+                    document.getElementById('id').value = pessoaEncontrada.id;
+                } else {
+                    alert('Pessoa não encontrada!');
+                }
+            })
+        }
+
+        //PUT
+        function atualizarDados() {
+            const id = document.getElementById('id').value;
+            const nome = document.getElementById('nomeAtualizar').value;
+            const idade = document.getElementById('idadeAtualizar').value;
+            const nacionalidade = document.getElementById('nacionalidadeAtualizar').value;
+            const genero = document.getElementById('generoAtualizar').value;
+            const musica = document.getElementById('musicaAtualizar').value;
+
+            fetch(`pessoas/${id}`,{
+                method: 'PUT',
+                headers: {
+                    'Content-Type' : 'application/json'
+                },
+                body: JSON.stringify({ nome: nome, idade: idade,nacionalidade: nacionalidade, genero: genero, musica: musica})
+            })
+            .then(response => response.json())
+            .then(data => {
+                // limpa os inputs do formulário
+                document.getElementById('id').value = '';
+                document.getElementById('nomeAtualizar').value = '';
+                document.getElementById('idadeAtualizar').value = '';
+                document.getElementById('nacionalidadeAtualizar').value = '';
+                document.getElementById('generoAtualizar').value = '';
+                document.getElementById('musicaAtualizar').value = '';
+            });
+            
+        }
+    </script>
+</body>
+</html>

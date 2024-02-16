@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POST - Método CRUD</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <center>
+            <h1>Cantores - POST</h1>
+        </center>
+    </header>
+
+    <div class="caixa">
+        <nav class="container">
+            <p>Menu</p>
+            <hr>
+            <a href="index.html">Get</a>
+            <a href="post.html" class="destaque">Post</a>
+            <a href="put.html">Put</a>
+            <a href="delete.html">Delete</a>
+        </nav>
+
+        <fieldset>
+            <form>
+                <h2>POST</h2>
+                <label>Nome:</label>
+                <input type="text" id="nomeCadastro" placeholder="Nome">
+                <br>
+                <label>Idade:</label>
+                <input type="text" id="idade" placeholder="Idade">
+                <br>
+                <label>Nacionalidade:</label>
+                <input type="text" id="nacionalidade" placeholder="Nacionalidade">
+                <br>
+                <label>Gênero:</label>
+                <input type="text" id="genero" placeholder="Gênero">
+                <br>
+                <label>Música:</label>
+                <input type="text" id="musica" placeholder="Música">
+                <br>
+                <button onclick="enviarDados()">Enviar</button>
+            </form>
+        </fieldset>
+    </div>
+
+    <script>
+        //POST
+        function enviarDados(){
+            const nome = document.getElementById('nomeCadastro').value;
+            const idade = document.getElementById('idade').value;
+            const nacionalidade = document.getElementById('nacionalidade').value;
+            const genero = document.getElementById('genero').value;
+            const musica = document.getElementById('musica').value;
+
+            fetch('pessoas',{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ nome: nome, idade: idade,nacionalidade: nacionalidade, genero: genero, musica: musica})
+            })
+            .then(response => response.json())
+            .then(data => {
+            
+                // limpa os inputs do formulário
+                document.getElementById('nomeCadastro').value = '';
+                document.getElementById('idade').value = '';
+                document.getElementById('nacionalidade').value = '';
+                document.getElementById('genero').value = '';
+                document.getElementById('musica').value = '';
+            });
+            
+        }
+    </script>
+</body>
+</html>
