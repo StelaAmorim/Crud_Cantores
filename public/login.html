@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <center>
+        <h1>Cantores - GET</h1>
+    </center>
+
+    <div class="container">
+        <center>
+            <fieldset>
+                <h2>Login</h2>
+                <hr>
+                <br>
+                <form onsubmit="event.preventDefault(); fazerLogin()">
+                    <label for="">Login:</label>
+                    <input type="text" id="login" placeholder="Digite o login"/>
+                    <br /><br />
+                    <label for="">Senha:</label>
+                    <input type="password" id="senha" placeholder="Digite a senha" required />
+                    <br><br>
+                    <button onclick="fazerLogin()">Entrar</button>
+                    <br>
+                </form>
+            </fieldset>
+        </center>
+    </div>
+
+    <script>
+        function fazerLogin(){
+            const login = document.getElementById("login").value;
+            const senha = document.getElementById("senha").value;
+
+            //Login: Ad6914
+            //Senha: 123456789
+
+            if(login == "Ad6914" && senha == "123456789"){
+                window.location.href = "put.html"
+            }else{
+                alert("Login não encontrado")
+            }
+        }
+    </script>
+</body>
+</html>

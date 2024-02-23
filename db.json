@@ -17,15 +17,15 @@
       "musica": "Happier Than Ever"
     },
     {
-      "id": 3,
       "nome": "Drake",
-      "idade": 37,
+      "idade": "37",
       "nacionalidade": "Canadense",
       "genero": "Rap",
-      "musica": "God's plan"
+      "musica": "God's plan",
+      "id": 3
     },
     {
-      "nome": "Thiago Veigh",
+      "nome": "Veigh",
       "idade": "23",
       "nacionalidade": "Brasileiro",
       "genero": "Trap",
